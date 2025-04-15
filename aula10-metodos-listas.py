@@ -14,7 +14,7 @@ print(gameList)
 gameList.sort()
 print(gameList)
 
-#Copiando uma lista par aoutra
+#Copiando uma lista para outra
 nemGameList = gameList.copy()
 nemGameList.remove("Valorant")
 print(nemGameList)
