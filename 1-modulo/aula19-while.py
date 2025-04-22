@@ -1,13 +1,43 @@
-gameName = input("Digite o nome do jogo\n")
-qtdNota = 0
-totalNota = 0
-nota = 0
-media = 0
+import re
+ 
+text = 'OneBitCode: Transformamos pessoas em programadores sem limites'
 
-while(nota != -1):
-    nota = float(input("Digite a nota:\n"))
-    if(nota != -1):
-        totalNota += nota 
-        qtdNota += 1
-        media = totalNota / qtdNota
-print(f"A média das notas do jogo {gameName} é {qtdNota:.2f}")
+# 1 - Índice inical e final de palavras
+#O r significa que estamos trabalhando com uma string bruta (raw string) 
+match = re.search(r'pessoas em programadores', text)
+print('Índice inicial:', match.start())
+print('Índice final:', match.end())
+
+# 2 - Buscando o índice que possui o ponto \\
+site = '<https://onebitcode.com/>'
+# Sem usar a \\
+match = re.search(r'.', site)
+print(match)
+ 
+# Usando a \\ para conseguir buscar a associação com o ponto
+match = re.search(r'\\.', site)
+print(match)
+
+# 3 - Buscando uma lista de caracteres dentro de uma frase []
+padrao = "[a-m]"
+resultado = re.findall(padrao, text)
+print(text)
+print(resultado)
+
+# 4 - Verifica o início de uma string ^
+rule = r'^A' # Strings que começam com a letra A
+phrases = ['A casa está suja', 'O dia está lindo', 'Vamos passear']
+for f in phrases:
+    if re.match(rule, f):
+        print(f'Corresponde: {f}')
+    else:
+        print(f'Não corresponde: {f}')
+
+# 5 - Verifica o final de uma string $
+rule_end = r'!$'
+phrases2 = 'O dia está lindo!'
+matches = re.search(rule_end, phrases2)
+if matches:
+    print("Sim, corresponde.")
+else:
+    print("Não corresponde.")
