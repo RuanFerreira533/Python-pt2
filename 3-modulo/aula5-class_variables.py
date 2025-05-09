@@ -12,7 +12,7 @@ class Movie:
         return f"Filme: {self.name}"
     
     def technical_sheet(self):
-        print("####Dados do Filme####")
+        print("### Dados do Filme ####")
         print(f"Plataforma {Movie.platform}")
         print(f"Nome Filme: {self.name}")
         print(f"Ano Lançamento: {self.yearLaunch}")
